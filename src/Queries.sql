@@ -1,4 +1,9 @@
 /*
+    Create database ams
+ */
+    create database ams;
+
+/*
     Create table account
  */
 
