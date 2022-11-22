@@ -17,57 +17,65 @@ public class MainClass {
         DisplayTransactionDetails transactionDetails= new DisplayTransactionDetails();
 
         int option;
-        Scanner input = new Scanner(System.in);
-        System.out.println("!!!! Welcome to Abhiyan Development Bank !!!!\n" +
-                "1. View account details. \n" +
-                "2. Create new Account \n" +
-                "3. Make transactions \n" +
-                "4. View transactions \n" +
-                "5. Exit");
-        option = input.nextInt();
+        boolean flag=true;
 
-        switch (option) {
+        do{
+            Scanner input = new Scanner(System.in);
+            System.out.println("\n !!!! Welcome to Abhiyan Development Bank !!!!\n" +
+                    "1. View account details. \n" +
+                    "2. Create new Account \n" +
+                    "3. Make transactions \n" +
+                    "4. View transactions \n" +
+                    "5. Exit");
+            option = input.nextInt();
 
-            case 1:
-                customerDetails.display();
-                break;
 
-            case 2:
-                registration.customerRegistration();
-                break;
 
-            case 3:
-                System.out.println("1. Make Deposit. \n" +
-                        "2. Make Withdraw. ");
-                int insideOption = input.nextInt();
+            switch (option) {
 
-                // nested switch statement
-                switch (insideOption) {
-                    case 1:
-                        transactions.makeDeposit();
-                        break;
-                    case 2:
-                        transactions.makeWithdraw();
-                        break;
-                    default:
-                        System.out.println("Error. Please try again");
-                        break;
+                case 1:
+                    customerDetails.display();
+                    break;
 
-                }
-                break;
+                case 2:
+                    registration.customerRegistration();
+                    break;
 
-            case 4:
-                transactionDetails.displayTransaction();
-                break;
+                case 3:
+                    System.out.println("1. Make Deposit. \n" +
+                            "2. Make Withdraw. ");
+                    int insideOption = input.nextInt();
 
-            case 5:
-                System.out.println("Thank you for using our platform. ");
-                break;
+                    // nested switch statement
+                    switch (insideOption) {
+                        case 1:
+                            transactions.makeDeposit();
+                            break;
+                        case 2:
+                            transactions.makeWithdraw();
+                            break;
+                        default:
+                            System.out.println("Error. Please try again");
+                            break;
 
-            default:
-                System.out.println("Invalid");
-                break;
-        }
+                    }
+                    break;
 
+                case 4:
+                    transactionDetails.displayTransaction();
+                    break;
+
+                case 5:
+                    System.out.println("Thank you for using our platform. ");
+                    flag=false;
+                    break;
+
+                default:
+                    System.out.println("Invalid");
+                    break;
+            }
+
+
+        } while(flag);
     }
 }

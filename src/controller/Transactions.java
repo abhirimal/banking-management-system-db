@@ -71,7 +71,7 @@ public class Transactions {
 
         }
 
-        if(bankAmount>0){
+        if(bankAmount>=withdraw){
             String query2 = "update account set amount=amount-? where account_number=?;";
 
             PreparedStatement stmt2 = conn.prepareStatement(query2);
